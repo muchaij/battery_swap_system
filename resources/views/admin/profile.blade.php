@@ -4,7 +4,7 @@
 <div class="container mt-4 mb-4 home">
     <div class="row">
         <div class="col mb-1">
-            <h4><span class='btn btn-secondary rounded-circle'><i class='far fa-user'></i></span> Your Profile</h4>
+            <h4><i class='far fa-user'></i> | Your Profile</h4>
         </div>
         <div class='col-sm-12 mt-2'>
 
@@ -22,13 +22,9 @@
                         <label>Last Name</label>
                         <input type='text' name='lastname' class='form-control' placeholder="Last Name" value='{{\Auth::user()->lastname}}' required>
                     </div>
-                    <div class='col-sm-12 mb-2'>
+                    <div class='col-sm-6 mb-2'>
                         <label>Email Address</label>
                         <input type='email' name='email' class='form-control' placeholder="Email Address" value='{{\Auth::user()->email}}'  required>
-                    </div>
-                    <div class='col-sm-6 mb-2'>
-                        <label>Phone Number</label>
-                        <input type='number' name='phone' class='form-control' placeholder="Phone Number" value='{{\Auth::user()->phone}}' required>
                     </div>
                     <div class='col-sm-6 mb-2'>
                         <label>Current Password</label>
@@ -88,5 +84,5 @@
             $('#countyModal form').submit();
         });
     });
-</script>    
+</script>
 @endpush

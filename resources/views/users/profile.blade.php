@@ -12,31 +12,27 @@
             @csrf
             <div class='col-sm-6 mb-2'>
                 <label>First Name:</label>
-                <input type='text' name='firstname' class='form-control' placeholder="First Name" value='{{\Auth::user()->firstname}}' required> 
+                <input type='text' name='firstname' class='form-control' placeholder="First Name" value='{{\Auth::user()->firstname}}' required>
             </div>
             <div class='col-sm-6 mb-2'>
                 <label>Last Name:</label>
-                <input type='text' name='lastname' class='form-control' placeholder="First Name" value='{{\Auth::user()->lastname}}' required> 
+                <input type='text' name='lastname' class='form-control' placeholder="First Name" value='{{\Auth::user()->lastname}}' required>
             </div>
             <div class='col-sm-6 mb-2'>
                 <label>Email Address:</label>
-                <input type='email' name='email' class='form-control' placeholder="Email Address" value='{{\Auth::user()->email}}' readonly> 
-            </div>
-            <div class='col-sm-6 mb-2'>
-                <label>Phone:</label>
-                <input type='number' name='phone' class='form-control' placeholder="Phone Number" value='{{\Auth::user()->phone}}' readonly> 
+                <input type='email' name='email' class='form-control' placeholder="Email Address" value='{{\Auth::user()->email}}' readonly>
             </div>
             <div class='col-sm-6 mb-2'>
                 <label>Current Password:</label>
-                <input type='password' name='password' class='form-control' placeholder="Current Password" required> 
+                <input type='password' name='password' class='form-control' placeholder="Current Password" required>
             </div>
             <div class='col-sm-6 mb-2'>
                 <label>New Password:</label>
-                <input type='password' name='new_password' class='form-control' placeholder="New Password"> 
+                <input type='password' name='new_password' class='form-control' placeholder="New Password">
             </div>
             <div class='col-sm-6 mb-2'>
                 <label>Confirm New Password:</label>
-                <input type='password' name='confirm_password' class='form-control' placeholder="Confirm New Password"> 
+                <input type='password' name='confirm_password' class='form-control' placeholder="Confirm New Password">
             </div>
             <div class='col-sm-12 text-right'>
                 <button class='btn btn-primary'>
@@ -59,7 +55,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

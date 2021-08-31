@@ -83,6 +83,14 @@
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
+                                    <a href="{{url('admin/pricing')}}" class="nk-menu-link">
+                                        <span class="nk-menu-icon">
+                                            <i class='fas fa-dollar-sign'></i>
+                                        </span>
+                                        <span class="nk-menu-text">Pricing</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
                                     <a href="{{url('admin/profile')}}" class="nk-menu-link">
                                         <span class="nk-menu-icon">
                                             <i class='far fa-user'></i>

@@ -155,6 +155,36 @@
                 $('#assignmentModal input[name=user_id]').val(0);
                 $('#assignmentModal input[name=battery_id]').val(0);
                 $('#assignmentModal input[name=station_id]').val(0);
+                $('#assignmentModal input[name=name]').val("");
+                $('#assignmentModal input[name=model]').val("");
+                $('#assignmentModal input[name=station]').val("");
+                $('#assignmentModal select[name=status]').val(0);
+                $('#assignmentModal input[name=r_level]').val(0);
+                $('#assignmentModal select[name=p_level]').val(100);
+            });
+            $(document).on('click', '.btn-edit', function(){
+                var row  = $(this).closest("tr");
+                var id = row.find(".id").text();
+                var user_id = row.find(".user_id").text();
+                var battery_id = row.find(".battery_id").text();
+                var station_id = row.find(".station_id").text();
+                var name = row.find("td:nth-child(1)").text();
+                var model = row.find("td:nth-child(3)").text();
+                var station = row.find("td:nth-child(4)").text();
+                var status = row.find(".status").text();
+                var p_level = row.find("td:nth-child(6)").text();
+                var r_level = row.find("td:nth-child(7)").text();
+                $('#assignmentModal input[name=id]').val(id);
+                $('#assignmentModal input[name=user_id]').val(user_id);
+                $('#assignmentModal input[name=battery_id]').val(battery_id);
+                $('#assignmentModal input[name=station_id]').val(station_id);
+                $('#assignmentModal input[name=name]').val(name);
+                $('#assignmentModal input[name=model]').val(model);
+                $('#assignmentModal input[name=station]').val(station);
+                $('#assignmentModal select[name=status]').val(status);
+                $('#assignmentModal input[name=r_level]').val(r_level);
+                $('#assignmentModal select[name=p_level]').val(p_level);
+                $('#assignmentModal').modal();
             });
 
             $('.search-form').submit(function(e){

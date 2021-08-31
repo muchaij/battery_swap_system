@@ -16,9 +16,9 @@ class AdminController extends Controller
     public function index(){
         $batteries = \DB::table("batteries")->sum("number");
         $batteries_in_use = \DB::table("batteries")->sum("in_use");
-        $drivers = \DB::table("users")->where("role", 0)->count();
+        $users = \DB::table("users")->where("role", 0)->count();
         return view('admin.home', ["batteries"=>$batteries, "batteries_in_use"=>$batteries_in_use,
-            "drivers"=>$drivers]);
+            "users"=>$users]);
     }
 
     public function assignments(){
@@ -62,7 +62,7 @@ class AdminController extends Controller
             return $item->bname." (".$item->model.")";
         })->addColumn('station', function($item){
             return $item->name." (".$item->location.")";
-        })->addColumn('station', function($item){
+        })->addColumn('status', function($item){
             return $item->status?"Returned":"In Use";
         })->addColumn('created_at', function($item){
             return \Carbon\Carbon::parse($item->created_at)->diffForHumans();
@@ -72,7 +72,7 @@ class AdminController extends Controller
                 <span class='d-none user_id'>".$item->user_id."</span>
                 <span class='d-none battery_id'>".$item->battery_id."</span>
                 <span class='d-none station_id'>".$item->station_id."</span>
-                <span class='d-none id status'>".$item->status."</span>
+                <span class='d-none status'>".$item->status."</span>
                 <button class='btn btn-primary btn-sm btn-edit'><i class='fas fa-edit pr-1'></i> <span>Edit</span></button>
             </div>";
         })->escapeColumns([])->make();
@@ -259,7 +259,9 @@ class AdminController extends Controller
             return back()->with("error", "Station already in use!");
         }
     }
-
+    public function pricing(){
+        return view('admin.pricing');
+    }
     public function profile(){
         return view('admin.profile');
     }

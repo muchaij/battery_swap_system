@@ -19,6 +19,7 @@ Auth::routes();
 
 //user routes
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('datatables/assignments', 'HomeController@getAssignments');
 Route::get('/profile', 'HomeController@profile');
 Route::post('/profile/change', 'HomeController@changeProfile');
 
@@ -42,4 +43,5 @@ Route::post('admin/vehicle/assign', 'AdminController@assignVehicle');
 Route::get('/admin/assignments', 'AdminController@assignments');
 Route::get('/admin/datatables/assignments', 'AdminController@getAssignments');
 Route::post('/admin/assignments/add', 'AdminController@addAssignment');
+Route::get('/admin/pricing', 'AdminController@pricing');
 Route::get('/admin/profile', 'AdminController@profile');

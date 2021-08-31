@@ -26,8 +26,8 @@
         <div class="col-sm-4 p-2">
             <div class='card border h-100'>
                 <div class='card-body'>
-                    <h5>Drivers</h5>
-                    <span style='font-size: 2em;'>{{number_format($drivers,0)}}</span>
+                    <h5>Users</h5>
+                    <span style='font-size: 2em;'>{{number_format($users,0)}}</span>
                 </div>
             </div>
         </div>
