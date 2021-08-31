@@ -44,4 +44,5 @@ Route::get('/admin/assignments', 'AdminController@assignments');
 Route::get('/admin/datatables/assignments', 'AdminController@getAssignments');
 Route::post('/admin/assignments/add', 'AdminController@addAssignment');
 Route::get('/admin/pricing', 'AdminController@pricing');
+Route::post('/admin/pricing/add', 'AdminController@addPricing');
 Route::get('/admin/profile', 'AdminController@profile');

@@ -260,8 +260,33 @@ class AdminController extends Controller
         }
     }
     public function pricing(){
-        return view('admin.pricing');
+        $pricing = \DB::table("pricing")->first();
+        return view('admin.pricing', ['pricing'=>$pricing]);
     }
+
+    public function addPricing(Request $request){
+        $request->validate([
+            'id'=>'required|min:0|integer',
+            'amount'=>'required|numeric|min:1',
+        ]);
+        $pricing = \DB::table("pricing")->first();
+        if($pricing != null){
+            if(\DB::table('pricing')->where('id', $pricing->id)->update(['amount'=>$request->amount,
+            'updated_at'=>\Carbon\Carbon::now()])){
+                return back()->with('success', 'Pricing Updated successfully');
+            }else{
+                return back()->with('error', 'Unable to update pricing');
+            }
+        }else{
+            if(\DB::table('pricing')->insert(['amount'=>$request->amount,
+            'created_at'=>\Carbon\Carbon::now()])){
+                return back()->with('success', 'Pricing created successfully');
+            }else{
+                return back()->with('error', 'Unable to create pricing');
+            }
+        }
+    }
+
     public function profile(){
         return view('admin.profile');
     }
