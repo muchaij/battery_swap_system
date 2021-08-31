@@ -1,0 +1,83 @@
+body{
+    font-family: 'Poppins';
+}
+
+.notifications{
+    position: fixed;
+    max-width: 300px;
+    right: 10px;
+    top: 10vh;
+    background-color: #dee;
+    padding: .8em;
+    border-radius: 3px;
+}
+.notifications table{
+    width: 100%;
+}
+.notifications table td:first-child{
+    width: 90%;
+}
+.notifications .btn{
+    padding: 0.5em 1em;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.nk-sidebar.is-dark {
+    background: #5614B0;
+    border-right-color: #5614B0;
+}
+.is-dark .nk-sidebar-head {
+    border-color: #fff;
+    background-color: #fff;
+}
+.nk-menu-link:hover .nk-menu-icon,
+.nk-menu-item.active > .nk-menu-link .nk-menu-icon,
+.nk-menu-item.current-menu > .nk-menu-link .nk-menu-icon,
+.nk-menu-link:hover, .active > .nk-menu-link {
+    color: #fff;
+}
+.nk-menu-link:hover, .active > .nk-menu-link {
+    background-color: #5614B0;
+    color: #fff;
+}
+.nk-menu-link, .nk-menu-icon{
+    font-family: "Poppins" !important;
+    color:white;
+}
+.nk-menu-sub .active > .nk-menu-link {
+    color:#fff;
+}
+.nk-menu-sub .nk-menu-link {
+    color: #fff;
+}
+.nk-menu-sub .nk-menu-link:hover {
+    color: #fff;
+}
+.btn-primary{
+    background-color: #5614B0 !important;
+    border-color:#5614B0 !important;
+    color: white;
+}
+.bg-dark{
+    background-color:#5614B0 !important;
+    border-color:#5614B0 !important;
+    color: white;
+}
+.btn-outline-primary{
+    background-color: transparent !important;
+    border-color:#5614B0 !important;
+    color: #5614B0 !important;
+}
+.dropdown-menu-s1 {
+    border-top: 3px solid #fff;
+}
+.sacco{
+    position: relative;
+}
+.sacco .list-group{
+    position: absolute;
+    z-index: 100;
+    width: 90%;
+    display: none;
+}

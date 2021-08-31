@@ -1,0 +1,105 @@
+body{
+    font-family: 'Ubuntu';
+}
+.navbar-nav .nav-link {
+    font-weight: bold;
+    padding: 1.5em 1em;
+    color: rgba(255,255,255,.7) !important;
+}
+.btn-primary{
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    background: #06beb6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #48b1bf, #06beb6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-color: transparent;
+}
+.main{
+    background-image: url('../images/map.jpg');
+    background-size: cover;
+}
+.dark{
+    min-height: 80vh;
+    color: white;
+    background: #3C3B3F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #605C3C, #3C3B3FAD);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #605C3C, #3C3B3FAD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.register{
+    min-height: 100vh;
+}
+.mybg{
+    background: #000046;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000046, #1CB5E0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000046, #1CB5E0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.mybg .btn-primary{
+    padding: 0.8em 2em;
+    background-color: #1F1C2Cad;
+    border: none;
+}
+.btn-white{
+    background-color: #fff;
+}
+.btn-outline-white{
+    background-color: transparent;
+    color: White;
+    border: 1px solid #fff;
+}
+.messages{
+    position: relative;
+}
+.messages .badge{
+    position: absolute;
+    top: 15px;
+    right: 2px;
+}
+.home{
+    min-height: 70vh;
+}
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 50%;
+    position: relative;
+    height: 0;
+}
+.notifications{
+    position: fixed;
+    max-width: 300px;
+    right: 10px;
+    top: 10vh;
+    background-color: #dee;
+    padding: .8em;
+    border-radius: 3px;
+}
+.notifications table{
+    width: 100%;
+}
+.notifications table td:first-child{
+    width: 90%;
+}
+.notifications .btn{
+    padding: 0.5em 1em;
+    border-radius: 50%;
+    background-color: transparent;
+}
+.col.btn{
+    border-radius: 0px;
+    padding: 1em 2em;
+}
+.col.btn{
+    border-radius: 0px;
+    padding: 1em 2em;
+    border-color: #3e299a;
+    background-color: #3e299a;
+}
+.col.btn.disabled{
+    border-radius: 0px;
+}
+.message-div{
+    height: 70vh;
+    background-color: #eee;
+}
