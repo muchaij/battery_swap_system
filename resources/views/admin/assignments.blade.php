@@ -34,6 +34,7 @@
                         <th>Status</th>
                         <th>Pickup Level</th>
                         <th>Return Level</th>
+                        <th>Amount</th>
                         <th>Date</th>
                         <th class='text-right'>Action</th>
                     </thead>
@@ -62,6 +63,8 @@
                         <input type="hidden" name="user_id" class="form-control" value="0">
                         <input type="hidden" name="battery_id" class="form-control" value="0">
                         <input type="hidden" name="station_id" class="form-control" value="0">
+                        <input type="hidden" name="pricing" value="{{$pricing != null?$pricing->amount:10}}"/>
+                        <input type="hidden" name="amount" value="0"/>
                         <label>User:</label>
                         <input type="text" name="name" class="form-control" placeholder="Name" autocomplete="off"/>
                         <div class='list-group users'>
@@ -98,6 +101,9 @@
                     <div class="col-sm-6 form-group">
                         <label>Return Level(%)</label>
                         <input type="number" name="r_level" class="form-control" placeholder="Totals" min="1" max="100" value="0"/>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        Payable amount: <span class='text-muted'>$ 20.00</span>
                     </div>
                 </form>
             </div>
@@ -136,6 +142,7 @@
                     {data: "status", name: "status"},
                     {data: "pickup_level", name: "pickup_level"},
                     {data: "return_level", name: "return_level"},
+                    {data: "amount", name: "amount", orderable:false},
                     {data: "created_at", name: "created_at"},
                     {data: "action", name: "action", orderable: false},
                     /*{data: "mydate", name: "date", orderable: false},*/
@@ -151,6 +158,8 @@
             });*/
 
             $('.btn-modal').click(function(){
+                var price  =  parseFloat($('#assignmentModal input[name=pricing]').val())*100;
+                $('#assignmentModal .text-muted').text("$"+price.toFixed(2));
                 $('#assignmentModal input[name=id]').val(0);
                 $('#assignmentModal input[name=user_id]').val(0);
                 $('#assignmentModal input[name=battery_id]').val(0);
@@ -160,7 +169,9 @@
                 $('#assignmentModal input[name=station]').val("");
                 $('#assignmentModal select[name=status]').val(0);
                 $('#assignmentModal input[name=r_level]').val(0);
-                $('#assignmentModal select[name=p_level]').val(100);
+                $('#assignmentModal input[name=p_level]').val(100);
+                $('#assignmentModal input[name=amount]').val(price);
+
             });
             $(document).on('click', '.btn-edit', function(){
                 var row  = $(this).closest("tr");
@@ -174,6 +185,11 @@
                 var status = row.find(".status").text();
                 var p_level = row.find("td:nth-child(6)").text();
                 var r_level = row.find("td:nth-child(7)").text();
+
+                var price  =  parseFloat($('#assignmentModal input[name=pricing]').val())*
+                (parseFloat(p_level)-parseFloat(r_level));
+                $('#assignmentModal .text-muted').text("$"+price.toFixed(2));
+
                 $('#assignmentModal input[name=id]').val(id);
                 $('#assignmentModal input[name=user_id]').val(user_id);
                 $('#assignmentModal input[name=battery_id]').val(battery_id);
@@ -184,6 +200,7 @@
                 $('#assignmentModal select[name=status]').val(status);
                 $('#assignmentModal input[name=r_level]').val(r_level);
                 $('#assignmentModal select[name=p_level]').val(p_level);
+                $('#assignmentModal input[name=amount]').val(price);
                 $('#assignmentModal').modal();
             });
 

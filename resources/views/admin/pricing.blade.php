@@ -12,9 +12,9 @@
             <p>Pricing is calculated using percentage used in a  battery</p>
             <form method='POST' action="{{url('admin/pricing/add')}}">
                 @csrf
-                <input name="id" type='hidden' value='0'/>
+                <input name="id" type='hidden' value='{{$pricing != null?$pricing->id:0}}'/>
                 <label>Amount per percentage:</label>
-                <input type='text' name="amount" class='form-control' placeholder="Amount per 1%" value="10">
+                <input type='text' name="amount" class='form-control' placeholder="Amount per 1%" value="{{$pricing != null?$pricing->amount:10}}">
                 <div class='p-2 text-right'>
                     <button class='btn btn-primary'>Update</button>
                 </div>

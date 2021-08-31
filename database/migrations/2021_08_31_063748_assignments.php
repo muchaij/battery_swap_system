@@ -21,6 +21,7 @@ class Assignments extends Migration
             $table->boolean("status");
             $table->integer("pickup_level");
             $table->integer("return_level");
+            $table->double("amount")->nullable();
             $table->timestamps();
         });
     }

@@ -22,7 +22,8 @@ class AdminController extends Controller
     }
 
     public function assignments(){
-        return view('admin.assignments');
+        $pricing = \DB::table("pricing")->first();
+        return view('admin.assignments', ['pricing'=>$pricing]);
     }
 
     public function searchUsers(Request $request){
@@ -64,6 +65,8 @@ class AdminController extends Controller
             return $item->name." (".$item->location.")";
         })->addColumn('status', function($item){
             return $item->status?"Returned":"In Use";
+        })->addColumn('amount', function($item){
+            return number_format($item->amount, 2);
         })->addColumn('created_at', function($item){
             return \Carbon\Carbon::parse($item->created_at)->diffForHumans();
         })->addColumn('action', function($item){
@@ -87,6 +90,7 @@ class AdminController extends Controller
             'r_level'=>'required|integer|min:0|max:100',
             'p_level'=>'required|integer|min:1|max:100',
             'status'=>'required|integer|min:0|max:1',
+            'amount'=>'nullable|integer|min:0',
         ]);
         if(\DB::table('assignments')->where('status', 0)->where('id', '<>', $request->id)->where('user_id', $request->user_id)
         ->count() > 0){
@@ -95,7 +99,8 @@ class AdminController extends Controller
             if($request->id >0){
                 if(\DB::table('assignments')->where('id', $request->id)->update(['user_id'=>$request->user_id,
                 'station_id'=>$request->station_id, 'status'=>$request->status, 'pickup_level'=>$request->p_level,
-                "battery_id"=>$request->battery_id, 'return_level'=>$request->r_level, 'updated_at'=>\Carbon\Carbon::now()])){
+                "battery_id"=>$request->battery_id, 'return_level'=>$request->r_level, "amount"=>$request->amount,
+                'updated_at'=>\Carbon\Carbon::now()])){
                     return back()->with('success', 'Battery assignment Updated');
                 }else{
                     return back()->with('error', 'Unable to update battery assignment');
